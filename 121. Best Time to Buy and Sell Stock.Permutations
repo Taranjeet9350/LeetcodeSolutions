@@ -1,0 +1,17 @@
+//Leetcode  —>121. Best Time to Buy and Sell Stock(Easy)
+
+class Solution {
+    public int maxProfit(int[] prices) {
+        int min = Integer.MAX_VALUE;
+        int profit = 0;
+        int max = 0;
+        for(int i=0;i<prices.length;i++){
+         min = Math.min(min,prices[i]);           
+         profit = Math.abs(min-prices[i]);
+            if(profit>max){
+                max = profit;               
+            }
+        }       
+        return max;        
+    }
+}
