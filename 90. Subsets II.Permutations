@@ -1,0 +1,22 @@
+//Leetcode  —>90. Subsets II(Medium)
+
+class Solution {  
+    void findsubSets(int ind,int[] nums,List<Integer> ds,List<List<Integer>> ansList){
+        System.out.println("ds is "+ds.toString());
+        ansList.add(new ArrayList<>(ds));       
+        System.out.println("ansList is "+ansList.toString());
+        for(int i=ind;i<nums.length;i++){
+            if(i != ind && nums[i] == nums[i-1]) continue;
+            ds.add(nums[i]);
+           findsubSets(i+1,nums,ds,ansList);
+            ds.remove(ds.size()-1);
+        }
+    }
+      
+    public List<List<Integer>> subsetsWithDup(int[] nums) {
+        Arrays.sort(nums);
+        List<List<Integer>> ansList = new ArrayList<>();
+        findsubSets(0,nums,new ArrayList<>(),ansList);
+        return ansList;
+    }
+}
