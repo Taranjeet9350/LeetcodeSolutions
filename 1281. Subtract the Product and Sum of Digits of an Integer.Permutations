@@ -1,0 +1,30 @@
+//Leetcode  —>1281. Subtract the Product and Sum of Digits of an Integer(Easy)
+
+class Solution {
+    
+    public int product(int p){
+        int product = 1;
+        while(p>0){    
+         int rem = p%10;
+         p = p/10; 
+        product = product*rem;
+        }       
+        return product;
+    } 
+        
+    public int sum(int s){
+         int sum = 0,rem=0;
+        while(s>0){  
+         rem = s%10; 
+         s = s/10; 
+        sum = sum+rem;
+        }
+        return sum;
+    }   
+    
+    public int subtractProductAndSum(int n) {
+        return product(n)-sum(n); 
+    }
+}
+
+ 
